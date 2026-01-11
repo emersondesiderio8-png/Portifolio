@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Desenvolvedor Web</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 0.8s ease-in;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      background: linear-gradient(90deg, #1f2c4c 0%, #304a6e 100%);
+      border-radius: 12px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 40%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 32px;
+      color: white;
+    }
+
+    header h2 {
+      font-weight: 300;
+      font-size: 18px;
+      color: #c9d6f0;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    section h2 {
+      color: #1f2c4c;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .tech-icons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .tech-icons i {
+      font-size: 32px;
+      color: #1f2c4c;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .projetos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    .card a {
+      color: #1f2c4c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .dark {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    .dark section {
+      background-color: #1e1e1e;
+    }
+
+    .dark .card {
+      background-color: #2c2c2c;
+    }
+
+    .dark h2, .dark h1 {
+      color: #6ca0ff;
+    }
+
+    .toggle {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #1f2c4c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      background-color: #304a6e;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="submit"] {
+      background-color: #1f2c4c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #304a6e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toggle">
+      <button onclick="document.body.classList.toggle('dark')">🌙 Modo Escuro</button>
+    </div>
+
+    <header>
+      <img src="EmersonFoto.png" alt="Foto do Perfil">
+      <h1>Emerson Jorge</h1>
+      <h2>Desenvolvedor Web Junior</h2>
+    </header>
+
+    <section>
+      <h2>Sobre Mim</h2>
+      <p>Sou um desenvolvedor web apaixonado por criar soluções elegantes e funcionais para a web. Tenho experiência com diversas tecnologias front-end e back-end.</p>
+    </section>
+
+    <section>
+      <h2>Projetos</h2>
+      <div class="projetos">
+        <div class="card">
+          <h3>Loja Virtual</h3>
+          <p>E-commerce responsivo com HTML, CSS e JavaScript.</p>
+          <a href="https://github.com/seuusuario/loja-virtual" target="_blank">Ver projeto</a>
+        </div>
+        <div class="card">
+          <h3>Dashboard Interativo</h3>
+          <p>Painel de controle com React e Chart.js.</p>
+          <a href="https://github.com/seuusuario/dashboard-interativo" target="_blank">Ver projeto</a>
+        </div>
+        <div class="card">
+          <h3>Portfólio Pessoal</h3>
+          <p>Portfólio responsivo feito com HTML, CSS e JavaScript.</p>
+          <a href="https://github.com/seuusuario/portfolio" target="_blank">Ver projeto</a>
+        </div>
+        <div class="card">
+          <h3>App de Clima</h3>
+          <p>Aplicativo que exibe a previsão do tempo usando API pública.</p>
+          <a href="https://github.com/seuusuario/app-de-clima" target="_blank">Ver projeto</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tecnologias</h2>
+      <div class="tech-icons">
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-js"></i>
+        <i class="fab fa-react"></i>
+        <i class="fab fa-node-js"></i>
+        <i class="fab fa-git-alt"></i>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certificações</h2>
+      <ul>
+        <li>Certificação Front-End - FreeCodeCamp (2023)</li>
+        <li>Certificação JavaScript Avançado - Alura (2024)</li>
+        <li>Curso FullStack Web - Udemy (2024)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contacto</h2>
+      <p>Email: emersondesiderio8@email.com</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/fulano" target="_blank">linkedin.com/in/fulano</a></p>
+      <p>GitHub: <a href="https://github.com/fulano" target="_blank">github.com/fulano</a></p>
+      <p>Whatsapp: +258 852375455</p>
+    </section>
+
+    <section>
+      <h2>Envie uma mensagem</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu email" required>
+        <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+        <input type="submit" value="Enviar">
+      </form>
+    </section>
+
+  </div>
+</body>
+</html>
