@@ -4,56 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio | Desenvolvedor Web</title>
+
+  <!-- Fontes e Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<link rel="stylesheet" href="style.css">
+
 <body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Carregando portfólio...</p>
+  </div>
+
   <div class="container">
+
+    <!-- BOTÃO MODO ESCURO -->
     <div class="toggle">
-      <button onclick="document.body.classList.toggle('dark')">🌙 Modo Escuro</button>
+      <button onclick="toggleDark()">🌙 Modo Escuro</button>
     </div>
 
+    <!-- HEADER -->
     <header>
       <img src="EmersonFoto.png" alt="Foto do Perfil">
       <h1>Emerson Jorge</h1>
       <h2>IT-Student</h2>
     </header>
 
-    <section>
+    <!-- SOBRE MIM -->
+    <section class="reveal">
       <h2>Sobre Mim</h2>
-      <p>Sou desenvolvedor de sistemas e estudante da Universidade Pedagógica, na Faculdade de Engenharia e Tecnologia (UP–FET). Tenho interesse na criação de soluções tecnológicas eficientes, bem estruturadas e focadas na resolução de problemas reais, buscando sempre evolução técnica e profissional.</p>
+      <p>
+        Sou desenvolvedor de sistemas e estudante da Universidade Pedagógica,
+        na Faculdade de Engenharia e Tecnologia (UP–FET). Tenho interesse na criação
+        de soluções tecnológicas eficientes, bem estruturadas e focadas na resolução
+        de problemas reais, buscando sempre evolução técnica e profissional.
+      </p>
     </section>
 
-
-    <section>
+    <!-- TECNOLOGIAS -->
+    <section class="reveal">
       <h2>Tecnologias</h2>
       <div class="tech-icons">
         <i class="fab fa-html5"></i>
         <i class="fab fa-css3-alt"></i>
         <i class="fab fa-js"></i>
         <i class="fab fa-git-alt"></i>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" class="tech-icon-img">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+             alt="Java"
+             class="tech-icon-img">
       </div>
     </section>
 
-    <section>
+    <!-- CERTIFICAÇÕES -->
+    <section class="reveal">
       <h2>Certificações</h2>
       <ul>
-        <li>Certificação Em Montagem e Administração de Redes - Tecnicol (2025)</li>
-        <li>Certificação Em Informática Básica e Intermédia - Tecnicol (2024)</li>
-        <li>Certificação Em inglês - James English School (2024)</li>
+        <li>Montagem e Administração de Redes – Tecnicol (2025)</li>
+        <li>Informática Básica e Intermédia – Tecnicol (2024)</li>
+        <li>Inglês – James English School (2024)</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Contacto</h2>
-      <p>Email: emersondesiderio8@email.com</p>
-      <p>Whatsapp: +258 852375455</p>
+    <!-- COMPETÊNCIAS -->
+    <section class="reveal">
+      <h2>Competências</h2>
+
+      <div class="skill">
+        <span>HTML</span>
+        <div class="bar">
+          <div class="progress html"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Java</span>
+        <div class="bar">
+          <div class="progress java"></div>
+        </div>
+      </div>
     </section>
+
+    <!-- CONTACTO -->
+    <section class="reveal">
+      <h2>Contacto</h2>
+      <p><i class="fas fa-envelope"></i> emersondesiderio8@email.com</p>
+      <p><i class="fab fa-linkedin"></i>
+        <a href="https://linkedin.com/in/fulano" target="_blank">
+          linkedin.com/in/fulano
+        </a>
+      </p>
+      <p><i class="fab fa-github"></i>
+        <a href="https://github.com/fulano" target="_blank">
+          github.com/fulano
+        </a>
+      </p>
+      <p><i class="fab fa-whatsapp"></i> +258 852375455</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 | Emerson Jorge • Desenvolvedor Web</p>
+    </footer>
+
   </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    /* Loading Screen */
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+
+    /* Modo Escuro */
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+    }
+
+    /* Scroll Reveal */
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll(".reveal").forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const visible = window.innerHeight - 100;
+        if (top < visible) {
+          el.classList.add("active");
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
