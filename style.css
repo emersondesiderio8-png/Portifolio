@@ -1,4 +1,4 @@
-    body {
+body {
       background-color: #f0f0f0;
       font-family: 'Poppins', sans-serif;
       color: #333;
@@ -31,7 +31,7 @@
 
     header img {
       width: 120px;
-      border-radius: 50%;
+      border-radius: 20%;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
@@ -75,6 +75,19 @@
       color: #1f2c4c;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
+
+    .tech-icon-img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+    
+      /* 1. Transforma a cor da imagem no exato azul #1f2c4c do seu código */
+      filter: brightness(0) saturate(100%) invert(14%) sepia(21%) saturate(2978%) hue-rotate(196deg) brightness(96%) contrast(92%);
+    
+      /* 2. Aplica a mesma sombra 1px 1px 2px rgba(0,0,0,0.1) definida no seu CSS */
+      drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+    }
+
 
     .projetos {
       display: flex;
@@ -162,3 +175,4 @@
     input[type="submit"]:hover {
       background-color: #304a6e;
     }
+   }
