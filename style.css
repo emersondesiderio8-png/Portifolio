@@ -175,4 +175,7 @@ body {
     input[type="submit"]:hover {
       background-color: #304a6e;
     }
-   }
+   a{
+      color: #867070;
+    }
+
