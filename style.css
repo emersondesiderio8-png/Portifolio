@@ -55,6 +55,10 @@ header h2 {
   color: #c9d6f0;
 }
 
+.reveal p{
+   text align: justify;
+}
+
 /* =========================
    SEÇÕES
 ========================= */
@@ -339,5 +343,6 @@ a {
     font-size: 14px;
   }
 }
+
 
 
