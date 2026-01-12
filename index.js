@@ -8,40 +8,43 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/*/*
 
-  /* Configurações */
-const textoParaDigitar = "IT-Student & Web Developer";
-let caractereAtual = 0;
-const velocidade = 100;
+ /EFEITO QUE ESTA DE BAIXO DO MEU NOME
+
+  const textoParaDigitar = "IT-Student & Web Developer";
+const velocidade = 100; // Velocidade de cada letra
+const intervaloRepeticao = 10000; // 10 segundos
 
 function efeitoDigitacao() {
   const elemento = document.getElementById("typing");
+  let caractereAtual = 0;
 
-  if (!elemento) {
-    console.error("Erro: Não encontrei o elemento com ID 'typing'");
-    return;
-  }
+  // 1. Limpa o texto antes de começar a digitar
+  elemento.textContent = "";
 
-  if (caractereAtual < textoParaDigitar.length) {
-    elemento.textContent += textoParaDigitar.charAt(caractereAtual);
-    caractereAtual++;
-    setTimeout(efeitoDigitacao, velocidade);
-  } else {
-    console.log("Digitação concluída!");
-  }
+  // 2. Cria a função interna que vai digitar letra por letra
+  const digita = () => {
+    if (caractereAtual < textoParaDigitar.length) {
+      elemento.textContent += textoParaDigitar.charAt(caractereAtual);
+      caractereAtual++;
+      setTimeout(digita, velocidade);
+    }
+  };
+
+  digita();
 }
 
-/* Gatilho de Inicialização */
+/* Inicialização */
 window.addEventListener("load", () => {
-  // Esconde o loader
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
+    document.getElementById("loader").style.display = "none";
+  
+    // Inicia a primeira vez
+    efeitoDigitacao();
+  
+    // Define para repetir a cada 10 segundos
+    setInterval(efeitoDigitacao, intervaloRepeticao);
+  });
 
-  console.log("Iniciando animação...");
-  // Pequena pausa de 300ms para garantir que o layout carregou
-  setTimeout(efeitoDigitacao, 300);
-});
 
 /*Revelação suave*/
 
@@ -51,6 +54,7 @@ const observador = new IntersectionObserver((entries) => {
             entry.target.classList.add('visivel');
         }
     });
+    
 }, { threshold: 0.1 }); // Dispara quando 10% do elemento aparece
 
 document.querySelectorAll('.revelar').forEach(el => observador.observe(el));
@@ -74,3 +78,4 @@ document.addEventListener('touchstart', function (event) {
     lastTouchEnd = now;
 
   }, false);
+
