@@ -56,7 +56,8 @@ header h2 {
 }
 
 .reveal p{
-   text align: justify;
+  text-align: justify;
+  line-height: 1.7;
 }
 
 /* =========================
@@ -143,6 +144,7 @@ ul {
 /* =========================
    COMPETÊNCIAS
 ========================= */
+
 .bar {
   background: #ddd;
   border-radius: 20px;
@@ -153,8 +155,30 @@ ul {
   border-radius: 20px;
 }
 
-.html { width: 85%; background: #e34c26; }
-.java { width: 65%; background: #007396; }
+.html {
+   width: 85%;
+   background: #e34c26;
+}
+
+.java { 
+  width: 63%;
+  background: #007396;
+}
+
+.trabalho-em-equipe {
+  width: 78%;
+  background: #4caf50;
+}
+
+.sql{
+  width: 50%;
+  background: #8e44ad;
+}
+
+.comunicacao{
+  width: 98%;
+  background: #3498db;
+}
 
 /* =========================
    BOTÕES
@@ -179,32 +203,6 @@ button:hover {
   box-shadow: 0 0 8px rgba(0,0,0,0.15);
 }
 
-/* =========================
-   FORMULÁRIO
-========================= */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input, textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: 'Poppins', sans-serif;
-}
-
-input[type="submit"] {
-  background-color: #1f2c4c;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #304a6e;
-}
 
 /* =========================
    LINKS
@@ -248,16 +246,22 @@ a {
   100% { transform: scale(1); }
 }
 
-/* Scroll Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+#typing-container {
+  font-family: 'Courier New', Courier, monospace; /* Fonte estilo código */
+  color: #007bff; /* Uma cor de destaque */
+  min-height: 1.2em; /* Evita que o layout "pule" quando o texto surge */
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+#typing::after {
+  content: "|"; /* O cursor */
+  margin-left: 5px;
+  font-weight: bold;
+  animation: piscarCursor 0.8s infinite;
+}
+
+@keyframes piscarCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* =========================
@@ -293,7 +297,9 @@ a {
   .tech-icons i,
   .tech-icon-img {
     font-size: 32px;
-  }/* =========================
+  }
+}    
+  /* =========================
    LOADING SCREEN
 ========================= */
 #loader {
@@ -325,7 +331,6 @@ a {
   to { transform: rotate(360deg); }
 }
 
-}
 
 /* Celulares pequenos */
 @media (max-width: 480px) {
@@ -344,5 +349,13 @@ a {
   }
 }
 
-
-
+/*Revelação suave*/
+.revelar {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
