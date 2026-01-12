@@ -1,3 +1,7 @@
+function saudar() {
+    alert("Olá! Você clicou no botão!");
+}
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -8,45 +12,42 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+//EFEITO QUE ESTA DE BAIXO DO MEU NOME
 
-const texto = "IT-Student & Web Developer";
-const velocidadeLetra = 100;
-const tempoEspera = 10000; // 10 segundos
+  const textoParaDigitar = "IT-Student & Web Developer";
+const velocidade = 100; // Velocidade de cada letra
+const intervaloRepeticao = 10000; // 10 segundos
 
-function iniciarCiclo() {
-  const alvo = document.getElementById("typing");
-  if (!alvo) return;
+function efeitoDigitacao() {
+  const elemento = document.getElementById("typing");
+  let caractereAtual = 0;
 
-  // Limpa o texto para recomeçar
-  alvo.textContent = "";
-  let i = 0;
+  // 1. Limpa o texto antes de começar a digitar
+  elemento.textContent = "";
 
-  console.log("Iniciando digitação...");
-
-  function escrever() {
-    if (i < texto.length) {
-      alvo.textContent += texto.charAt(i);
-      i++;
-      setTimeout(escrever, velocidadeLetra);
-    } else {
-      console.log("Texto completo. Aguardando 10 segundos para repetir...");
+  // 2. Cria a função interna que vai digitar letra por letra
+  const digita = () => {
+    if (caractereAtual < textoParaDigitar.length) {
+      elemento.textContent += textoParaDigitar.charAt(caractereAtual);
+      caractereAtual++;
+      setTimeout(digita, velocidade);
     }
-  }
+  };
 
-  escrever();
+  digita();
 }
 
-// Inicia quando a página carregar
+/* Inicialização */
 window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
+    document.getElementById("loader").style.display = "none";
+  
+    // Inicia a primeira vez
+    efeitoDigitacao();
+  
+    // Define para repetir a cada 10 segundos
+    setInterval(efeitoDigitacao, intervaloRepeticao);
+  });
 
-  // Roda a primeira vez
-  iniciarCiclo();
-
-  // Configura a repetição
-  setInterval(iniciarCiclo, tempoEspera);
-});
 
 /*Revelação suave*/
 
@@ -56,7 +57,6 @@ const observador = new IntersectionObserver((entries) => {
             entry.target.classList.add('visivel');
         }
     });
-    
 }, { threshold: 0.1 }); // Dispara quando 10% do elemento aparece
 
 document.querySelectorAll('.revelar').forEach(el => observador.observe(el));
@@ -78,7 +78,4 @@ document.addEventListener('touchstart', function (event) {
       event.preventDefault();
     }
     lastTouchEnd = now;
-
   }, false);
-
-
