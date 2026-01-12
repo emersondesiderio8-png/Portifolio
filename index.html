@@ -11,10 +11,12 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <title>Exemplo JavaScript Externo</title>
+  <!-- Javascript -->
+    <script src="index.js" defer></script>
 </head>
 
 <body>
-
   <!-- LOADING SCREEN -->
   <div id="loader">
     <div class="spinner"></div>
@@ -32,7 +34,7 @@
     <header>
       <img src="EmersonFoto.png" alt="Foto do Perfil">
       <h1>Emerson Jorge</h1>
-      <h2>IT-Student</h2>
+      <h2 id="typing-container"><span id="typing"></span></h2>
     </header>
 
     <!-- SOBRE MIM -->
@@ -64,31 +66,53 @@
     <section class="reveal">
       <h2>Certificações</h2>
       <ul>
-        <li>Montagem e Administração de Redes – Tecnicol (2025)</li>
-        <li>Informática Básica e Intermédia – Tecnicol (2024)</li>
-        <li>Inglês – James English School (2024)</li>
+        <li>Montagem e Administração de Redes - Tecnicol (2025)</li>
+        <li>Informática Básica e Intermédia - Tecnicol (2024)</li>
+        <li>Inglês - James English School (2024)</li>
       </ul>
     </section>
 
     <!-- COMPETÊNCIAS -->
     <section class="reveal">
-      <h2>Competências</h2>
+        <h2>Minhas Competências</h2>
 
-      <div class="skill">
-        <span>HTML</span>
-        <div class="bar">
-          <div class="progress html"></div>
+        <div class="skill">
+          <span>Desenvolvimento web (Nivel Junior)</span>
+          <div class="bar">
+            <div class="progress html"></div>
+          </div>
         </div>
-      </div>
+  
+        <div class="skill">
+          <span>Java (Nivel Junior)</span>
+          <div class="bar">
+            <div class="progress java"></div>
+          </div>
+        </div>
 
-      <div class="skill">
-        <span>Java</span>
-        <div class="bar">
-          <div class="progress java"></div>
+        <div class="skill">
+          <span>Banco de dados (Sql básico)</span>
+          <div class="bar">
+            <div class="progress sql"></div>
+          </div>
         </div>
-      </div>
+
+        <div class="skill">
+          <span>Trabalho em equipe</span>
+          <div class="bar">
+            <div class="progress trabalho-em-equipe"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Boa comunicacão</span>
+          <div class="bar">
+            <div class="progress comunicacao"></div>
+          </div>
+        </div>
     </section>
-
+    
+      
     <!-- CONTACTO -->
     <section class="reveal">
       <h2>Contacto</h2>
@@ -98,11 +122,13 @@
           linkedin.com/in/fulano
         </a>
       </p>
+
       <p><i class="fab fa-github"></i>
         <a href="https://github.com/fulano" target="_blank">
           github.com/fulano
         </a>
       </p>
+
       <p><i class="fab fa-whatsapp"></i>
         <a href="https://wa.me/258852375455?text=Olá%20gostaria%20de%20mais%20informações
         " target="_blank">Whatsapp</a> 
