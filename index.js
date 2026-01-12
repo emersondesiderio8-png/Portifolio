@@ -1,7 +1,3 @@
-function saudar() {
-    alert("Olá! Você clicou no botão!");
-}
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -76,4 +72,5 @@ document.addEventListener('touchstart', function (event) {
       event.preventDefault();
     }
     lastTouchEnd = now;
+
   }, false);
