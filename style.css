@@ -175,9 +175,14 @@ ul {
   background: #8e44ad;
 }
 
+.comunicacao{
+    width: 91%;
+    background: #3498db;
+}
+
 .ingles{
   width: 61%;
-  background: #3498db;
+  background: #F39C12;
 }
 
 /* =========================
@@ -359,4 +364,5 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+
 
