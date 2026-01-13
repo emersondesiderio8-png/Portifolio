@@ -365,5 +365,19 @@ a {
   transform: translateY(0);
 }
 
+/* Bloqueia a seleção em todo o corpo do site */
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Padrão (Chrome, Firefox, Opera) */
+}
+
+/* Opcional: Se quiser que o usuário AINDA consiga copiar algo específico 
+   (como seu e-mail ou nome), adicione esta classe ao elemento: */
+.permitir-selecao {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
 
 
