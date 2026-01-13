@@ -8,43 +8,46 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  let intervaloDigitacao; // Variável global para controlar o timer
-
-  function efeitoHacker() {
-    const alvo = document.getElementById("typing");
-    if (!alvo) return;
+  let timerDigitacao; // Guarda o tempo de cada letra
+  let i = 0;
+  const texto = "IT-Student & Web Developer";
+  const velocidade = 100;
   
-    const texto = "IT-Student & Web Developer";
-    let i = 0;
+  function iniciarEfeito() {
+      const alvo = document.getElementById("typing");
+      if (!alvo) return;
   
-    // 1. Limpa o texto e para qualquer processo anterior
-    alvo.textContent = "";
-    clearInterval(intervaloDigitacao); 
+      // 1. PARAR e LIMPAR tudo antes de começar
+      clearTimeout(timerDigitacao); 
+      alvo.textContent = ""; 
+      i = 0;
   
-    // 2. Função que escreve
-    function escrever() {
-      if (i < texto.length) {
-        alvo.textContent += texto.charAt(i);
-        i++;
-        setTimeout(escrever, 100);
-      }
-    }
-  
-    escrever();
+      // 2. Chamar a função de escrita
+      escrever();
   }
   
-  // Inicialização segura
+  function escrever() {
+      const alvo = document.getElementById("typing");
+      
+      if (i < texto.length) {
+          alvo.textContent += texto.charAt(i);
+          i++;
+          // Agenda a próxima letra
+          timerDigitacao = setTimeout(escrever, velocidade);
+      }
+  }
+  
+  // Inicialização
   window.addEventListener("load", () => {
-    // Esconde o loader
-    if(document.getElementById("loader")) {
-        document.getElementById("loader").style.display = "none";
-    }
+      // Remove o loader
+      const loader = document.getElementById("loader");
+      if (loader) loader.style.display = "none";
   
-    // Inicia o ciclo
-    efeitoHacker();
+      // Inicia a primeira vez
+      iniciarEfeito();
   
-    // Define a repetição de 10 em 10 segundos de forma limpa
-    setInterval(efeitoHacker, 10000);
+      // Repete a cada 10 segundos de forma limpa
+      setInterval(iniciarEfeito, 10000);
   });
 /*Revelação suave*/
 
