@@ -1,7 +1,3 @@
-function saudar() {
-    alert("Olá! Você clicou no botão!");
-}
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -12,43 +8,44 @@ const observer = new IntersectionObserver((entries) => {
   
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-//EFEITO QUE ESTA DE BAIXO DO MEU NOME
+  let intervaloDigitacao; // Variável global para controlar o timer
 
-  const textoParaDigitar = "IT-Student & Web Developer";
-const velocidade = 100; // Velocidade de cada letra
-const intervaloRepeticao = 10000; // 10 segundos
-
-function efeitoDigitacao() {
-  const elemento = document.getElementById("typing");
-  let caractereAtual = 0;
-
-  // 1. Limpa o texto antes de começar a digitar
-  elemento.textContent = "";
-
-  // 2. Cria a função interna que vai digitar letra por letra
-  const digita = () => {
-    if (caractereAtual < textoParaDigitar.length) {
-      elemento.textContent += textoParaDigitar.charAt(caractereAtual);
-      caractereAtual++;
-      setTimeout(digita, velocidade);
+  function efeitoHacker() {
+    const alvo = document.getElementById("typing");
+    if (!alvo) return;
+  
+    const texto = "IT-Student & Web Developer";
+    let i = 0;
+  
+    // 1. Limpa o texto e para qualquer processo anterior
+    alvo.textContent = "";
+    clearInterval(intervaloDigitacao); 
+  
+    // 2. Função que escreve
+    function escrever() {
+      if (i < texto.length) {
+        alvo.textContent += texto.charAt(i);
+        i++;
+        setTimeout(escrever, 100);
+      }
     }
-  };
-
-  digita();
-}
-
-/* Inicialização */
-window.addEventListener("load", () => {
-    document.getElementById("loader").style.display = "none";
   
-    // Inicia a primeira vez
-    efeitoDigitacao();
+    escrever();
+  }
   
-    // Define para repetir a cada 10 segundos
-    setInterval(efeitoDigitacao, intervaloRepeticao);
+  // Inicialização segura
+  window.addEventListener("load", () => {
+    // Esconde o loader
+    if(document.getElementById("loader")) {
+        document.getElementById("loader").style.display = "none";
+    }
+  
+    // Inicia o ciclo
+    efeitoHacker();
+  
+    // Define a repetição de 10 em 10 segundos de forma limpa
+    setInterval(efeitoHacker, 10000);
   });
-
-
 /*Revelação suave*/
 
 const observador = new IntersectionObserver((entries) => {
