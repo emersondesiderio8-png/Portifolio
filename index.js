@@ -79,3 +79,30 @@ document.addEventListener('touchstart', function (event) {
     }
     lastTouchEnd = now;
   }, false);
+
+/* =========================
+     MODO ESCURO
+  ========================= */
+  const botaoTema = document.getElementById("theme-toggle");
+  if (botaoTema) {
+    const temaSalvo = localStorage.getItem("tema");
+
+    if (temaSalvo === "dark") {
+      document.body.classList.add("dark");
+      botaoTema.textContent = "Modo Claro ☀️";
+    } else {
+      botaoTema.textContent = "Modo Escuro 🌙";
+    }
+
+    botaoTema.addEventListener("click", () => {
+      const escuroAtivo = document.body.classList.toggle("dark");
+
+      botaoTema.textContent = escuroAtivo
+        ? "Modo Claro ☀️"
+        : "Modo Escuro 🌙";
+
+      localStorage.setItem("tema", escuroAtivo ? "dark" : "light");
+    });
+  }
+
+
